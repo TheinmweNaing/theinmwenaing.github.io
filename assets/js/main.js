@@ -27,11 +27,11 @@ jQuery(document).ready(function($) {
     
     
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "TheinmweNaing");
+    new GitHubCalendar("#github-graph", "theinmwenaing");
     
     
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "TheinmweNaing", selector: "#ghfeed" });
+    GitHubActivity.feed({ username: "theinmwenaing", selector: "#ghfeed" });
 
 
 });
