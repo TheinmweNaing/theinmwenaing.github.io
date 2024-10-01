@@ -39,8 +39,8 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
     
     /* Github Calendar - https://github.com/IonicaBizau/github-calendar */
-    new GitHubCalendar("#github-graph", "Theinmwe Naing", { responsive: true });
+    new GitHubCalendar("#github-graph", "TheinmweNaing", { responsive: true });
     
     
     /* Github Activity Feed - https://github.com/caseyscarborough/github-activity */
-    GitHubActivity.feed({ username: "Theinmwe Naing", selector: "#ghfeed" });
+    GitHubActivity.feed({ username: "TheinmweNaing", selector: "#ghfeed" });
