@@ -20,7 +20,7 @@ function addTooltips(container) {
     container.appendChild(tooltip)
 
     // Add mouse event listener to show & hide tooltip
-    const days = container.querySelectorAll(".js-calendar-graph-svg rect.ContributionCalendar-day")
+    const days = container.querySelectorAll("rect.day")
     days.forEach(day => {
         day.addEventListener("mouseenter", (e) => {
             let contribCount = e.target.getAttribute("data-count")
@@ -114,20 +114,13 @@ module.exports = function GitHubCalendar (container, username, options) {
         $(".position-relative h2", cal).remove()
         //cal.querySelector(".float-left.text-gray").innerHTML = options.summary_text
 
-        // Remove 3d visualiser div
-        for (const a of div.querySelectorAll("a")) {
-            if (a.textContent.includes("View your contributions in 3D, VR and IRL!")) {
-                a.parentElement.remove()
-            }
-        }
-
         // If 'include-fragment' with spinner img loads instead of the svg, fetchCalendar again
         if (cal.querySelector("include-fragment")) {
             setTimeout(fetchCalendar, 500)
         } else {
             // If options includes responsive, SVG element has to be manipulated to be made responsive
             if (options.responsive === true) {
-                let svg = cal.querySelector("table.js-calendar-graph-table")
+                let svg = cal.querySelector("svg.js-calendar-graph-svg")
                 // Get the width/height properties and use them to create the viewBox
                 let width = svg.getAttribute("width")
                 let height = svg.getAttribute("height")
@@ -140,7 +133,7 @@ module.exports = function GitHubCalendar (container, username, options) {
             }
 
             if (options.global_stats !== false) {
-                let parsed = parse(cal.innerHTML)
+                let parsed = parse($("svg", cal).outerHTML)
                   , currentStreakInfo = parsed.current_streak
                                       ? `${formatoid(parsed.current_streak_range[0], DATE_FORMAT2)} &ndash; ${formatoid(parsed.current_streak_range[1], DATE_FORMAT2)}`
                                       : parsed.last_contributed
